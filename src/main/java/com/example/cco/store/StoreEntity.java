@@ -95,7 +95,8 @@ public class StoreEntity extends BaseEntity {
     @Column
     private Date rentFromYmd;
 
-
+    @Column
+    private String donationYn;
 
 
 

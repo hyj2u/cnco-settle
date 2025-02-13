@@ -25,7 +25,7 @@ public class JwtTokenProvider
     @Value("${key.salt}")
     private  String salt;
     private Key secretKey;
-    public static final long ACCESS_TOKEN_EXPIRED = 1000L * 60 * 3; // 1초 * 60 * 60 = 1시간
+    public static final long ACCESS_TOKEN_EXPIRED = 1000L * 60 * 60 *8; // 1초 * 60 * 60 = 1시간
     //public static final long ACCESS_TOKEN_EXPIRED =1000L * 30;
     public static final long REFRESH_TOKEN_EXPIRED = 12000L * 60 * 60; // 12시간
 
