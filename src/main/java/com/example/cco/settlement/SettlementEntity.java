@@ -45,6 +45,8 @@ public class SettlementEntity extends BaseEntity {
     private Integer b3etc;
     @Column(name = "b4init_product")
     private Integer b4initProduct;
+    @Column
+    private Integer b4donation;
     @Column(name = "c1card_fee")
     private Integer c1cardFee;
     @Column
@@ -102,6 +104,8 @@ public class SettlementEntity extends BaseEntity {
     private String b1etcExpenseNote;
     @Column
     private String b4initProductNote;
+    @Column
+    private String b4donationNote;
     @Column
     private String c1cardFeeNote;
     @Column

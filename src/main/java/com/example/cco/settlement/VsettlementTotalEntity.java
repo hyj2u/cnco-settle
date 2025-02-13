@@ -119,6 +119,10 @@ public class VsettlementTotalEntity extends BaseEntity {
     @Column
     private String b4initProductNote;
     @Column
+    private Integer b4donation;
+    @Column
+    private String b4donationNote;
+    @Column
     private String c1cardFeeNote;
     @Column
     private String c1rentNote;

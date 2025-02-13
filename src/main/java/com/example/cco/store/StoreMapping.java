@@ -35,5 +35,6 @@ public interface StoreMapping {
     String getBrandCd();
     Long getPrepaidRent();
     Integer getPrepaidMonth();
+    String getDonationYn();
 
 }
