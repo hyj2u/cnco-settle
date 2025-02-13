@@ -1,0 +1,32 @@
+package com.example.cco.auto;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+import java.util.Date;
+
+@JsonInclude(JsonInclude.Include.NON_NULL)
+@Entity(name = "vpayco")
+@Data
+public class PaycoEntity {
+
+    @Id
+    private String storeCode;
+    @Column
+    private String storeName;
+    @Column
+    private Date settlementYmd;
+    @Column
+    private Long totalAmount;
+    @Column
+    private Long point;
+    @Column
+    private Long coupon;
+    @Column
+    private String mstoreCode;
+
+}
+
