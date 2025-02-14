@@ -610,6 +610,7 @@ public class SettlementServiceImpl implements SettlementService {
         settlement.setB3material(totalEntity.getB3material());
         //settlement.setB3etc(totalEntity.getB3etc());
         settlement.setB4initProduct(totalEntity.getB4initProduct());
+        settlement.setB4donation(totalEntity.getB4donation());
         settlement.setC1cardFee(totalEntity.getC1cardFee());
         settlement.setC1rent(totalEntity.getC1rent());
         settlement.setC1electricity(totalEntity.getC1electricity());
@@ -638,6 +639,7 @@ public class SettlementServiceImpl implements SettlementService {
         settlement.setB3etcNote(totalEntity.getB3etcNote());
         settlement.setB1etcExpenseNote(totalEntity.getB1etcExpenseNote());
         settlement.setB4initProductNote(totalEntity.getB4initProductNote());
+        settlement.setB4donationNote(totalEntity.getB4donationNote());
         settlement.setC1cardFeeNote(totalEntity.getC1cardFeeNote());
         settlement.setC1rentNote(totalEntity.getC1rentNote());
         settlement.setC1electricityNote(totalEntity.getC1electricityNote());
