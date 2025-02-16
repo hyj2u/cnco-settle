@@ -149,6 +149,14 @@ public class AutoServiceImpl implements AutoService {
                 settlement.setSrcB3material(autoSummaryEntity.getTaxation());
                 settlement.setD1material(autoSummaryEntity.getTaxExemption());
                 settlement.setSrcD1material(autoSummaryEntity.getTaxExemption());
+                //기부금 항목 추가
+                if(store.getDonationYn()!=null) {
+                    if (store.getDonationYn().equals("Y")) {
+                        Integer total = autoSummaryEntity.getCard() + autoSummaryEntity.getCash();
+                        settlement.setB4donation((int) (Math.floor((total * 0.0025) * 1.1)));
+                    }
+                }
+
 
             }
 
@@ -160,13 +168,7 @@ public class AutoServiceImpl implements AutoService {
                 settlement.setB1internet(beforeSettlement.getB1internet());
                 settlement.setC1insurance(beforeSettlement.getC1insurance());
                 settlement.setD1storeMaint(beforeSettlement.getD1storeMaint());
-                //기부금 항목 추가
-                if(store.getDonationYn()!=null) {
-                    if (store.getDonationYn().equals("Y")) {
-                        Integer total = beforeSettlement.getA1card() + beforeSettlement.getA1cash() + beforeSettlement.getA1tax();
-                        settlement.setB4donation((int) (Math.floor((total * 0.0025) * 1.1)));
-                    }
-                }
+
 
 
             }
