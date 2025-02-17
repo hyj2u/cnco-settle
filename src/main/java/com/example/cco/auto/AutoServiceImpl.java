@@ -153,7 +153,7 @@ public class AutoServiceImpl implements AutoService {
                 if(store.getDonationYn()!=null) {
                     if (store.getDonationYn().equals("Y")) {
                         Integer total = autoSummaryEntity.getCard() + autoSummaryEntity.getCash();
-                        settlement.setB4donation((int) (Math.floor((total * 0.0025) * 1.1)));
+                        settlement.setB4donation((int) (Math.ceil((total * 0.0025) * 1.1)));
                     }
                 }
 
