@@ -39,6 +39,7 @@ public class AuthController {
         data.put("status", "ok");
         data.put("pkey", memberEntity.getPkey());
         data.put("auth", memberEntity.getUserAuthCd());
+        data.put("userId", memberEntity.getUserId());
         return new ResponseEntity(data, HttpStatus.OK);
     }
 
