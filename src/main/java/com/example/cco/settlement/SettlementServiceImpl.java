@@ -145,6 +145,8 @@ public class SettlementServiceImpl implements SettlementService {
             }
             cell = row.createCell(cellNum++);
             cell.setCellValue("초도물품대");
+            cell = row.createCell(cellNum++);
+            cell.setCellValue("기부금");
             //b4extra
             for (int j = 1; j <= 5; j++) {
                 String extraGb = "b4extra" + j;
@@ -309,6 +311,8 @@ public class SettlementServiceImpl implements SettlementService {
             //b4
             cell = row.createCell(cellNum++);
             cell.setCellValue(totalEntity.getB4initProduct());
+            cell = row.createCell(cellNum++);
+            cell.setCellValue(totalEntity.getB4donation());
             //b4extra
             cell = row.createCell(cellNum++);
             cell.setCellValue(totalEntity.getB4extra1());
@@ -467,6 +471,7 @@ public class SettlementServiceImpl implements SettlementService {
                 cellIdx = updateExtras(worksheet, date, formatter, i, cellIdx, row, storeCode, extraGb);
             }
             settlement.setB4initProduct(Integer.parseInt(formatter.formatCellValue(row.getCell(++cellIdx))));
+            settlement.setB4donation(Integer.parseInt(formatter.formatCellValue(row.getCell(++cellIdx))));
             for (int j = 1; j < 6; j++) {
                 String extraGb = "b4extra" + j;
                 cellIdx = updateExtras(worksheet, date, formatter, i, cellIdx, row, storeCode, extraGb);

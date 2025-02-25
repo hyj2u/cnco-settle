@@ -37,6 +37,8 @@ interface VsettlementsForWriteMapping {
 
     Integer getB4initProduct();
 
+    Integer getB4donation();
+
     Integer getC1cardFee();
 
     Integer getC1rent();
