@@ -471,7 +471,7 @@ public class SettlementServiceImpl implements SettlementService {
                 cellIdx = updateExtras(worksheet, date, formatter, i, cellIdx, row, storeCode, extraGb);
             }
             settlement.setB4initProduct(Integer.parseInt(formatter.formatCellValue(row.getCell(++cellIdx))));
-            settlement.setB4donation(Integer.parseInt(formatter.formatCellValue(row.getCell(++cellIdx))));
+            //settlement.setB4donation(Integer.parseInt(formatter.formatCellValue(row.getCell(++cellIdx))));
             for (int j = 1; j < 6; j++) {
                 String extraGb = "b4extra" + j;
                 cellIdx = updateExtras(worksheet, date, formatter, i, cellIdx, row, storeCode, extraGb);
