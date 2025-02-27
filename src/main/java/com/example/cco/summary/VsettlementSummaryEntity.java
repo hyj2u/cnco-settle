@@ -45,6 +45,8 @@ public class VsettlementSummaryEntity  {
     @Column
     private Long b4initProduct;
     @Column
+    private Long b4donation;
+    @Column
     private Long c1cardFee;
     @Column
     private Long c1rent;
