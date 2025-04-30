@@ -455,5 +455,6 @@ public class VsettlementTotalEntity extends BaseEntity {
 
 
 
+
 }
 

@@ -1159,7 +1159,7 @@ public class SettlementServiceImpl implements SettlementService {
         PageDto pageDto = new PageDto();
         Pageable pageable = PageRequest.of(page - 1, 10);
         Page<VsettlementsListMapping> vsettlementsListMappings = null;
-        if (search == null) {
+        if (search == null || search.equals("")) {
             if (settlementYmd.length() > 4) {
                 vsettlementsListMappings = vsettlementTotalRepository.findVsettlementsListBySettlementYmdAndPhoneAndClosedYnOrderBySettlementYmdDesc(
                         dateConverter.stringToDate(settlementYmd + "-01"), member.getPhone(), "Y", pageable);
