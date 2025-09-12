@@ -35,21 +35,20 @@ public class WebSecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http
-                .httpBasic(HttpBasicConfigurer::disable)
+        .httpBasic(HttpBasicConfigurer::disable)
                 .csrf(CsrfConfigurer::disable)
                 .cors().configurationSource(corsConfigurationSource()).and()
                 .sessionManagement(configurer -> configurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/auth/login", "/settle/secret", "/img/**", "/auth/signup", "/health").permitAll()
+                        .requestMatchers("/auth/login", "/settle/secret", "/img/**", "/auth/signup", "/health" ).permitAll()
                         .requestMatchers(HttpMethod.OPTIONS).permitAll()
                         .anyRequest().authenticated())
-                .exceptionHandling(authenticationManager -> authenticationManager.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
+                .exceptionHandling(authenticationManager-> authenticationManager.authenticationEntryPoint(new CustomAuthenticationEntryPoint())
                         .accessDeniedHandler(new CustomAccessDeniedHandler()))
-                .addFilter(new JwtAuthenticationFilter(jwtTokenProvider, authenticationManager(), memberRepository, refreshTknRepository, passwordEncoder()))
+                .addFilter(new JwtAuthenticationFilter(jwtTokenProvider, authenticationManager(), memberRepository,refreshTknRepository, passwordEncoder()))
                 .addFilterBefore(new JwtAuthorizationFilter(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
@@ -63,15 +62,13 @@ public class WebSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.addAllowedOrigin("https://settle-admin.cncocompany.com"); // 프론트 도메인 지정
-        configuration.addAllowedOrigin("https://settle.cncocompany.com");
+        configuration.addAllowedOriginPattern("*");
         configuration.addAllowedHeader("*");
         configuration.addAllowedMethod("*");
-        configuration.setAllowCredentials(true); // 쿠키/Authorization 헤더 허용
+        configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", configuration);
         return source;
     }
 
 }
-
